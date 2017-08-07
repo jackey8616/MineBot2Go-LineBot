@@ -21,3 +21,14 @@ var server = app.listen(process.env.PORT || 8080, function() {
   var port = server.address().port;
   console.log("App now running on port", port);
 });
+
+bot.on('message', function(event) {
+	if(event.message.type = 'text') {
+		var msg = event.message.text;
+		event.replay(msg).then(function(data) {
+			console.log(msg);
+		}).catch(function(error) {
+			console.log('error')
+		});
+	}
+});
